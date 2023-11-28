@@ -158,8 +158,8 @@ if (isset($_GET['paragraph'])) {
                     <?php
                     if (!empty($paragraph)) {
 
-                        foreach ($paragraphList as $paragraph) {
-                            echo "<p style='border-bottom: 1px dashed black;' class='py-2'>$paragraph</p>";
+                        foreach ($paragraphList as $singleParagraph) {
+                            echo "<p style='border-bottom: 1px dashed black;' class='py-2'>$singleParagraph</p>";
                         }
                     }
                     ?>
