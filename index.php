@@ -72,8 +72,14 @@ $games = [
         'homeTeamScore' => 110,
         'awayTeamScore' => 100
     ]
-]
-    ?>
+];
+
+if (isset($_GET['name']) && isset($_GET['mail']) && isset($_GET['age'])) {
+    $name = $_GET['name'];
+    $mail = $_GET['mail'];
+    $age = $_GET['age'];
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +105,36 @@ $games = [
             </div>
         </div>
         <div class='d-flex w-100 h-50 '>
-            <div class="w-50 bg-primary">
+            <div class="w-50 bg-primary overflow-auto">
                 <h1>Snack #2</h1>
+                <div class="container">
+                    <form class='text-start' action='index.php' method="GET">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="text" class="form-control" id="age" name='age'>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </form>
+
+                    <h2>
+                        <?php
+                        if (!empty($name) && !empty($mail) && !empty($age)) {
+                            echo strlen($name) > 3 && strpos($mail, '@') && strpos($mail, '.') && is_numeric($age) ? "Accesso riuscito" : "Accesso negato";
+                        }
+                        ?>
+                    </h2>
+                </div>
             </div>
+
             <div class="w-50 bg-warning">
                 <h1>Snack bonus</h1>
             </div>
