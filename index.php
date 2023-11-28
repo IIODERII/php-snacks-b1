@@ -35,6 +35,42 @@ $games = [
         'awayTeam' => 'Heat',
         'homeTeamScore' => 90,
         'awayTeamScore' => 115
+    ],
+    [
+        'homeTeam' => 'Knicks',
+        'awayTeam' => 'Raptors',
+        'homeTeamScore' => 100,
+        'awayTeamScore' => 105
+    ],
+    [
+        'homeTeam' => 'Nets',
+        'awayTeam' => 'Hornets',
+        'homeTeamScore' => 105,
+        'awayTeamScore' => 95
+    ],
+    [
+        'homeTeam' => 'Jazz',
+        'awayTeam' => 'Nuggets',
+        'homeTeamScore' => 115,
+        'awayTeamScore' => 120
+    ],
+    [
+        'homeTeam' => 'Spurs',
+        'awayTeam' => 'Rockets',
+        'homeTeamScore' => 95,
+        'awayTeamScore' => 110
+    ],
+    [
+        'homeTeam' => 'Cavaliers',
+        'awayTeam' => 'Pacers',
+        'homeTeamScore' => 105,
+        'awayTeamScore' => 90
+    ],
+    [
+        'homeTeam' => 'Rockets',
+        'awayTeam' => 'Lakers',
+        'homeTeamScore' => 110,
+        'awayTeamScore' => 100
     ]
 ]
     ?>
@@ -52,11 +88,11 @@ $games = [
 
 <body>
     <div class="vh-100 text-center">
-        <div class='h-50 bg-success'>
+        <div class='h-50 bg-success overflow-auto'>
             <h1>Snack #1</h1>
             <div class="d-flex container flex-wrap">
                 <?php foreach ($games as $game) { ?>
-                    <h2 style='width : calc(100% / 3);' class='py-3'>
+                    <h2 style='width : calc(100% / 3);' class='py-4'>
                         <?php echo "$game[homeTeam]-$game[awayTeam] | $game[homeTeamScore]-$game[awayTeamScore] "; ?>
                     </h2>
                 <?php } ?>
