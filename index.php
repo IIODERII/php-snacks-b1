@@ -79,6 +79,14 @@ if (isset($_GET['name']) && isset($_GET['mail']) && isset($_GET['age'])) {
     $mail = $_GET['mail'];
     $age = $_GET['age'];
 }
+;
+
+//$paragraph = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a";
+
+if (isset($_GET['paragraph'])) {
+    $paragraph = $_GET['paragraph'];
+    $paragraphList = explode('.', $paragraph);
+}
 ?>
 
 <!DOCTYPE html>
@@ -135,11 +143,29 @@ if (isset($_GET['name']) && isset($_GET['mail']) && isset($_GET['age'])) {
                 </div>
             </div>
 
-            <div class="w-50 bg-warning">
+            <div class="w-50 bg-warning overflow-auto">
                 <h1>Snack bonus</h1>
+                <div class="container py-5">
+                    <form class='text-start' action='index.php' method="GET">
+                        <div class="mb-3">
+                            <label for="paragraph" class="form-label">Your paragraph</label>
+                            <textarea type="text" class="form-control" id="paragraph" name='paragraph'
+                                rows="5"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </form>
+                    <?php
+                    if (!empty($paragraph)) {
+
+                        foreach ($paragraphList as $paragraph) {
+                            echo "<p style='border-bottom: 1px dashed black;' class='py-2'>$paragraph</p>";
+                        }
+                    }
+                    ?>
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
